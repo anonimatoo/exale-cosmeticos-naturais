@@ -1,0 +1,10 @@
+{
+  "slug": "kit-premium-exale",
+  "name": "Kit Premium Exale",
+  "active": true,
+  "description": "Combo especial com produtos selecionados para presente.",
+  "productSlugs": [],
+  "discountType": "percent",
+  "discountValue": 10,
+  "bannerText": "Leve o Kit Premium com desconto especial."
+}

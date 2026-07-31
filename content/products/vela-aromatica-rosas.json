@@ -1,0 +1,53 @@
+{
+  "slug": "vela-aromatica-rosas",
+  "name": "Vela Aromática Rosas",
+  "category": "Velas Artesanais",
+  "price": 39.9,
+  "oldPrice": 49.9,
+  "shortText": "Aroma delicado para deixar o ambiente elegante e acolhedor.",
+  "description": "Vela artesanal com aroma floral suave, ideal para presentear, decorar ou criar um momento de paz dentro de casa.",
+  "benefits": [
+    "Perfuma o ambiente",
+    "Decoração charmosa",
+    "Feita artesanalmente",
+    "Ótima para presente"
+  ],
+  "stock": 12,
+  "featured": true,
+  "images": [
+    "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/vela-aromatica-rosas-1784141993626.jpg"
+  ],
+  "line": "Velas Artesanais",
+  "lineSubtitle": "",
+  "sku": "VELA-AROMATICA-ROSAS",
+  "nome": "Vela Aromática Rosas",
+  "title": "Vela Aromática Rosas",
+  "titulo": "Vela Aromática Rosas",
+  "image": "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/vela-aromatica-rosas-1784141993626.jpg",
+  "imagem": "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/vela-aromatica-rosas-1784141993626.jpg",
+  "imageUrl": "/exale-produto-sem-foto.svg",
+  "image_url": "/exale-produto-sem-foto.svg",
+  "withoutImage": true,
+  "semImagem": true,
+  "id": "vela-aromatica-rosas",
+  "originalSlug": "vela-aromatica-rosas",
+  "promotionalPrice": null,
+  "costPrice": 0,
+  "active": true,
+  "preco": 39.9,
+  "valor": 39.9,
+  "precoPromocional": null,
+  "estoque": 12,
+  "categoria": "Velas Artesanais",
+  "linha": "Velas Artesanais",
+  "descricao": "Vela artesanal com aroma floral suave, ideal para presentear, decorar ou criar um momento de paz dentro de casa.",
+  "resumo": "Aroma delicado para deixar o ambiente elegante e acolhedor.",
+  "ativo": true,
+  "destaque": true,
+  "foto": "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/vela-aromatica-rosas-1784141993626.jpg",
+  "imagens": [
+    "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/vela-aromatica-rosas-1784141993626.jpg"
+  ],
+  "shortDescription": "Aroma delicado para deixar o ambiente elegante e acolhedor.",
+  "updatedAt": "2026-07-15T18:59:55.605Z"
+}

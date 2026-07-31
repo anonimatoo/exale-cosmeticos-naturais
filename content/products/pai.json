@@ -1,0 +1,30 @@
+{
+  "slug": "pai",
+  "sku": "PAI",
+  "name": "pai",
+  "category": "Cosméticos Naturais",
+  "line": "",
+  "price": 0,
+  "oldPrice": 0,
+  "costPrice": 0,
+  "shortText": "",
+  "description": "",
+  "stock": 1,
+  "featured": true,
+  "images": [
+    "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/1001784395-1783752244706.png"
+  ],
+  "active": true,
+  "id": "pai",
+  "nome": "pai",
+  "title": "pai",
+  "descricao": "",
+  "preco": 0,
+  "promotionalPrice": null,
+  "seo": {
+    "title": "pai",
+    "description": "",
+    "keywords": []
+  },
+  "updatedAt": "2026-07-11T06:44:17.587Z"
+}

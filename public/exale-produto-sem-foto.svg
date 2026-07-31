@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#fff7ed"/>
+      <stop offset="45%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f4dfbd"/>
+    </linearGradient>
+  </defs>
+  <rect width="900" height="900" rx="80" fill="url(#g)"/>
+  <circle cx="450" cy="350" r="150" fill="#f59e0b" opacity=".18"/>
+  <path d="M290 570c85-105 135-130 190-76 35-64 83-94 145-39 41 36 77 89 115 145H210c26-18 52-19 80-30Z" fill="#c9951f" opacity=".35"/>
+  <text x="450" y="710" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="800" fill="#7a4b22">Exale</text>
+  <text x="450" y="765" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#8a5a2b">Produto sem foto cadastrada</text>
+</svg>

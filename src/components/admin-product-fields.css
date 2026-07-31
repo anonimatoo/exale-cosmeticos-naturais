@@ -1,0 +1,172 @@
+.exale-product-editor,
+[data-product-editor],
+.product-editor,
+.product-card-editor {
+  position: relative;
+  overflow: hidden;
+  margin: 20px 0;
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid rgba(142, 92, 45, 0.18);
+  border-radius: 24px;
+  background:
+    radial-gradient(
+      circle at 100% 0,
+      rgba(245, 197, 115, 0.18),
+      transparent 34%
+    ),
+    linear-gradient(145deg, #ffffff, #fffaf3);
+  box-shadow:
+    0 18px 55px rgba(70, 38, 15, 0.1);
+}
+
+.exale-product-editor h2,
+.exale-product-editor h3,
+[data-product-editor] h2,
+[data-product-editor] h3 {
+  margin: 0 0 18px;
+  color: #3b2112;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  letter-spacing: -0.025em;
+}
+
+.exale-product-grid,
+[data-product-grid],
+.product-editor-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(12, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.exale-field,
+[data-product-field] {
+  grid-column: span 6;
+  min-width: 0;
+}
+
+.exale-field-wide,
+[data-product-field="wide"] {
+  grid-column: 1 / -1;
+}
+
+.exale-field label,
+[data-product-field] label {
+  display: block;
+  margin-bottom: 7px;
+  color: #4b2c19;
+  font-size: 0.88rem;
+  font-weight: 800;
+}
+
+.exale-field input,
+.exale-field textarea,
+.exale-field select,
+[data-product-field] input,
+[data-product-field] textarea,
+[data-product-field] select,
+.exale-product-editor input,
+.exale-product-editor textarea,
+.exale-product-editor select {
+  width: 100%;
+  min-height: 48px;
+  border: 1px solid #e7d5c4;
+  border-radius: 13px;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #2f1d12;
+  font: inherit;
+  outline: none;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+
+.exale-product-editor textarea,
+[data-product-field] textarea {
+  min-height: 116px;
+  resize: vertical;
+}
+
+.exale-product-editor input:focus,
+.exale-product-editor textarea:focus,
+.exale-product-editor select:focus,
+[data-product-field] input:focus,
+[data-product-field] textarea:focus,
+[data-product-field] select:focus {
+  border-color: #bd7838;
+  box-shadow:
+    0 0 0 4px rgba(189, 120, 56, 0.14);
+}
+
+.exale-product-editor button,
+[data-product-editor] button {
+  min-height: 46px;
+  border: 0;
+  border-radius: 13px;
+  padding: 11px 18px;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease,
+    opacity 150ms ease;
+}
+
+.exale-product-editor button:hover,
+[data-product-editor] button:hover {
+  transform: translateY(-1px);
+  box-shadow:
+    0 12px 25px rgba(75, 40, 15, 0.16);
+}
+
+.exale-product-save,
+[data-action="save-product"] {
+  color: #fff;
+  background:
+    linear-gradient(135deg, #77401d, #b86d2e);
+}
+
+.exale-product-secondary {
+  color: #542f18;
+  background: #f7eadc;
+}
+
+.exale-product-danger {
+  color: #991b1b;
+  background: #fee2e2;
+}
+
+.exale-product-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid #ead8c7;
+  border-radius: 13px;
+  background: #fff;
+}
+
+.exale-product-editor small,
+[data-product-editor] small {
+  display: block;
+  margin-top: 6px;
+  color: #7b685b;
+  line-height: 1.4;
+}
+
+@media (max-width: 760px) {
+  .exale-field,
+  [data-product-field] {
+    grid-column: 1 / -1;
+  }
+
+  .exale-product-editor,
+  [data-product-editor],
+  .product-editor,
+  .product-card-editor {
+    border-radius: 18px;
+    padding: 18px;
+  }
+}

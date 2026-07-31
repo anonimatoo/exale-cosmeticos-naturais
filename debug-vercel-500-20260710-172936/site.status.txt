@@ -1,0 +1,2 @@
+HTTP_site=200
+FINAL_URL=https://exale-cosmeticos-naturais.vercel.app/?v=debug-20260710-172936

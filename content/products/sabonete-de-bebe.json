@@ -1,0 +1,51 @@
+{
+  "action": "delete_product",
+  "slug": "sabonete-de-bebe",
+  "id": "pao",
+  "name": "Sabonete de bebe",
+  "nome": "Sabonete de bebe",
+  "title": "Sabonete de bebe",
+  "description": "",
+  "descricao": "",
+  "price": 39.99,
+  "preco": 39.99,
+  "promotionalPrice": null,
+  "stock": 10,
+  "sku": "",
+  "category": "Cosméticos Naturais",
+  "active": true,
+  "featured": false,
+  "images": [
+    "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/sabonete-de-bebe-1784141923754.jpg"
+  ],
+  "seo": {
+    "title": "Produto 1",
+    "description": "",
+    "keywords": []
+  },
+  "updatedAt": "2026-07-15T18:58:50.265Z",
+  "titulo": "Sabonete de bebe",
+  "image": "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/sabonete-de-bebe-1784141923754.jpg",
+  "imagem": "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/sabonete-de-bebe-1784141923754.jpg",
+  "imageUrl": "/exale-produto-sem-foto.svg",
+  "image_url": "/exale-produto-sem-foto.svg",
+  "withoutImage": true,
+  "semImagem": true,
+  "originalSlug": "pao",
+  "costPrice": 2899,
+  "shortText": "",
+  "valor": 39.99,
+  "precoPromocional": null,
+  "estoque": 10,
+  "categoria": "Cosméticos Naturais",
+  "line": "Cosméticos Naturais",
+  "linha": "Cosméticos Naturais",
+  "resumo": "",
+  "ativo": true,
+  "destaque": false,
+  "foto": "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/sabonete-de-bebe-1784141923754.jpg",
+  "imagens": [
+    "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/sabonete-de-bebe-1784141923754.jpg"
+  ],
+  "shortDescription": ""
+}

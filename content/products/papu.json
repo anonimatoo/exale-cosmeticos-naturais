@@ -1,0 +1,30 @@
+{
+  "slug": "papu",
+  "sku": "27738484",
+  "name": "papu",
+  "category": "Cosméticos Naturais",
+  "line": "",
+  "price": 0,
+  "oldPrice": 49.9,
+  "costPrice": 1818,
+  "shortText": "",
+  "description": "",
+  "stock": 1,
+  "featured": true,
+  "images": [
+    "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/1001784399-1783752820971.png"
+  ],
+  "active": true,
+  "id": "papu",
+  "nome": "papu",
+  "title": "papu",
+  "descricao": "",
+  "preco": 0,
+  "promotionalPrice": null,
+  "seo": {
+    "title": "papu",
+    "description": "",
+    "keywords": []
+  },
+  "updatedAt": "2026-07-11T06:54:19.649Z"
+}

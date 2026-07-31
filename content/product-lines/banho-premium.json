@@ -1,0 +1,9 @@
+{
+  "slug": "banho-premium",
+  "name": "Linha Banho Premium",
+  "subtitle": "Produtos para transformar o banho em uma experiência de autocuidado.",
+  "active": true,
+  "order": 5,
+  "highlightText": "Experiência de banho",
+  "image": "blob:https://exale-cosmeticos-naturais.vercel.app/06eddf6d-1eb1-4b28-b11e-ca2eff0c26c0"
+}

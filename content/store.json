@@ -1,0 +1,144 @@
+{
+  "settings": {
+    "storeName": "Patrícia Santana",
+    "slogan": "Cosméticos naturais que transformam cuidado em beleza, equilíbrio e bem-estar.",
+    "heroTitle": "Beleza natural com identidade própria.",
+    "heroSubtitle": "Produtos selecionados, promoções especiais e atendimento personalizado pelo WhatsApp.",
+    "logoUrl": "",
+    "whatsapp": "5513991616048",
+    "instagram": "@exale.cosmeticosnaturais",
+    "tiktok": "",
+    "cnpj": "24.604.430/0001-80",
+    "primaryColor": "#160c07",
+    "accentColor": "#d4af37",
+    "footerText": "Patrícia Santana • EXALE — cosméticos naturais, cuidado e sofisticação.",
+    "brandName": "EXALE",
+    "heroImageUrl": "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/1784232219484-1001785951.png?v=1784232220947"
+  },
+  "products": [
+    {
+      "slug": "kit-autocuidado-exale",
+      "name": "Kit Autocuidado Exale",
+      "category": "Kits Presentes",
+      "price": 89.9,
+      "oldPrice": 109.9,
+      "shortText": "Um kit especial para presentear com beleza, aroma e carinho.",
+      "description": "Kit presenteável com produtos artesanais para transformar a rotina em um ritual de autocuidado.",
+      "benefits": [
+        "Visual premium",
+        "Ideal para datas especiais",
+        "Experiência completa",
+        "Perfeito para presentear"
+      ],
+      "stock": 8,
+      "featured": true,
+      "images": [
+        "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1000&q=85"
+      ],
+      "line": "tratamento-com-argila",
+      "lineSubtitle": "",
+      "sku": "KIT-AUTOCUIDADO-EXALE",
+      "nome": "Kit Autocuidado Exale",
+      "title": "Kit Autocuidado Exale",
+      "titulo": "Kit Autocuidado Exale",
+      "image": "/exale-produto-sem-foto.svg",
+      "imagem": "/exale-produto-sem-foto.svg",
+      "imageUrl": "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/1784232257696-1001785185.png?v=1784232259286",
+      "image_url": "/exale-produto-sem-foto.svg",
+      "withoutImage": true,
+      "semImagem": true,
+      "id": "kit-autocuidado-exale",
+      "active": false,
+      "promotionalPrice": null
+    },
+    {
+      "action": "delete_product",
+      "slug": "pao",
+      "id": "pao",
+      "name": "Produto 1",
+      "nome": "Produto 1",
+      "title": "Produto 1",
+      "description": "",
+      "descricao": "",
+      "price": 0,
+      "preco": 0,
+      "promotionalPrice": null,
+      "stock": 0,
+      "sku": "",
+      "category": "",
+      "active": false,
+      "featured": false,
+      "images": [],
+      "seo": {
+        "title": "Produto 1",
+        "description": "",
+        "keywords": []
+      },
+      "updatedAt": "2026-07-10T15:38:46.368Z",
+      "titulo": "Produto 1",
+      "image": "/exale-produto-sem-foto.svg",
+      "imagem": "/exale-produto-sem-foto.svg",
+      "imageUrl": "/exale-produto-sem-foto.svg",
+      "image_url": "/exale-produto-sem-foto.svg",
+      "withoutImage": true,
+      "semImagem": true
+    },
+    {
+      "slug": "vela-aromatica-rosas",
+      "name": "Vela Aromática Rosas",
+      "category": "Velas Artesanais",
+      "price": 39.9,
+      "oldPrice": 49.9,
+      "shortText": "Aroma delicado para deixar o ambiente elegante e acolhedor.",
+      "description": "Vela artesanal com aroma floral suave, ideal para presentear, decorar ou criar um momento de paz dentro de casa.",
+      "benefits": [
+        "Perfuma o ambiente",
+        "Decoração charmosa",
+        "Feita artesanalmente",
+        "Ótima para presente"
+      ],
+      "stock": 12,
+      "featured": true,
+      "images": [
+        "https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?auto=format&fit=crop&w=1000&q=85"
+      ],
+      "line": "body-splash",
+      "lineSubtitle": "",
+      "sku": "VELA-AROMATICA-ROSAS",
+      "nome": "Vela Aromática Rosas",
+      "title": "Vela Aromática Rosas",
+      "titulo": "Vela Aromática Rosas",
+      "image": "/exale-produto-sem-foto.svg",
+      "imagem": "/exale-produto-sem-foto.svg",
+      "imageUrl": "/exale-produto-sem-foto.svg",
+      "image_url": "/exale-produto-sem-foto.svg",
+      "withoutImage": true,
+      "semImagem": true,
+      "id": "vela-aromatica-rosas",
+      "active": false,
+      "promotionalPrice": null
+    }
+  ],
+  "promotions": [],
+  "reviews": [
+    {
+      "id": "review-1",
+      "name": "Cliente Exale",
+      "photoUrl": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80",
+      "comment": "Atendimento cuidadoso, produtos bem apresentados e uma experiência excelente.",
+      "rating": 5,
+      "active": true,
+      "demo": true
+    },
+    {
+      "id": "review-2",
+      "name": "Cliente Exale",
+      "photoUrl": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+      "comment": "Pedido organizado e atendimento muito rápido pelo WhatsApp.",
+      "rating": 5,
+      "active": true,
+      "demo": true
+    }
+  ],
+  "categories": []
+}

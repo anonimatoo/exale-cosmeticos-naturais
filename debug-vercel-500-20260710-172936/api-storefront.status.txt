@@ -1,0 +1,2 @@
+HTTP_api-storefront=500
+FINAL_URL=https://exale-cosmeticos-naturais.vercel.app/api/storefront?v=debug-20260710-172936

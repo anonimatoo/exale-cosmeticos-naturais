@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#fff3c4"/>
+      <stop offset="45%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#4b2a12"/>
+    </radialGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="800" height="800" rx="190" fill="#120b07"/>
+  <circle cx="400" cy="400" r="295" fill="url(#bg)" filter="url(#glow)"/>
+  <circle cx="400" cy="400" r="245" fill="#120b07"/>
+  <text x="400" y="390" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="130" font-weight="900" fill="#ffd56a" filter="url(#glow)">Exale</text>
+  <text x="400" y="475" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" fill="#fff7d1">COSMÉTICOS NATURAIS</text>
+</svg>

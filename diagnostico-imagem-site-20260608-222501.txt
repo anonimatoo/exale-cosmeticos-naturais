@@ -1,0 +1,156 @@
+DIAGNÓSTICO DE IMAGEM / BANNER / SITE
+Data: Mon Jun  8 22:25:01 UTC 2026
+Projeto: /root/exale-cosmeticos-naturais
+
+1) Últimos banners locais encontrados:
+---- content/banners/banho-premium.json
+slug: banho-premium
+title: Banho Premium Exale
+image: https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/banner-banho-premium.svg
+active: True
+order: 2
+---- content/banners/dia-dos-namorados.json
+slug: dia-dos-namorados
+title: Especial Dia dos Namorados
+image: https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/1780949378083-1001761539.png
+active: True
+order: 1
+---- content/banners/feliz-dia-dos-namorados.json
+slug: feliz-dia-dos-namorados
+title: Feliz dia dos Namorados
+image: https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/1780954067401-1001737799.png
+active: True
+order: 1
+---- content/banners/promocao-exale.json
+slug: promocao-exale
+title: Promoções Especiais
+image: https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/banner-promocao-exale.svg
+active: True
+order: 3
+
+2) Conferindo se cada imagem dos banners abre publicamente:
+Imagem em content/banners/banho-premium.json
+https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/banner-banho-premium.svg
+HTTP: 200 | bytes: 1036 | mime: image/svg+xml
+
+Imagem em content/banners/dia-dos-namorados.json
+https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/1780949378083-1001761539.png
+HTTP: 200 | bytes: 1899436 | mime: image/png
+
+Imagem em content/banners/feliz-dia-dos-namorados.json
+https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/1780954067401-1001737799.png
+HTTP: 200 | bytes: 3147578 | mime: image/png
+
+Imagem em content/banners/promocao-exale.json
+https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/banner-promocao-exale.svg
+HTTP: 200 | bytes: 1072 | mime: image/svg+xml
+
+
+3) Conferindo API pública /api/storefront:
+HTTP API: 200
+ok: None
+generatedAt: 2026-06-08T22:25:05.737Z
+total banners api: 4
+API banner: banho-premium | Banho Premium Exale | https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/banner-banho-premium.svg
+API banner: dia-dos-namorados | Especial Dia dos Namorados | https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/1780949378083-1001761539.png
+API banner: feliz-dia-dos-namorados | Feliz dia dos Namorados | https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/1780954067401-1001737799.png
+API banner: promocao-exale | Promoções Especiais | https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/banner-promocao-exale.svg
+
+4) Conferindo se a home contém as URLs das imagens dos banners:
+HTTP HOME: 200
+OK: home contém imagem de content/banners/banho-premium.json
+OK: home contém imagem de content/banners/dia-dos-namorados.json
+OK: home contém imagem de content/banners/feliz-dia-dos-namorados.json
+OK: home contém imagem de content/banners/promocao-exale.json
+
+5) Conferindo arquivos críticos:
+---- src/lib/runtime-store.ts
+13:    cache: "no-store",
+44:    const jsonFiles = files.filter((file) => file.name?.endsWith(".json") && file.download_url)
+49:          const response = await fetch(`${file.download_url}?ts=${Date.now()}`, { cache: "no-store" })
+64:export async function getRuntimeStorefront() {
+---- src/app/api/storefront/route.ts
+3:import { getRuntimeStorefront } from "@/lib/runtime-store"
+6:export const dynamic = "force-dynamic"
+8:export const fetchCache = "force-no-store"
+11:  const data = await getRuntimeStorefront()
+15:      "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+16:      "CDN-Cache-Control": "no-store",
+17:      "Vercel-CDN-Cache-Control": "no-store",
+---- src/app/api/admin/upload/route.ts
+5:export const dynamic = "force-dynamic"
+7:export const fetchCache = "force-no-store"
+13:      "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+14:      "CDN-Cache-Control": "no-store",
+15:      "Vercel-CDN-Cache-Control": "no-store"
+64:    const publicUrl = `https://raw.githubusercontent.com/${owner}/${repo}/main/public/uploads/${fileName}?v=${Date.now()}`
+90:      path: publicUrl,
+91:      publicUrl,
+---- src/app/api/admin/data/route.ts
+9:import { getRuntimeStorefront } from "@/lib/runtime-store"
+12:export const dynamic = "force-dynamic"
+14:export const fetchCache = "force-no-store"
+20:      "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+21:      "CDN-Cache-Control": "no-store",
+22:      "Vercel-CDN-Cache-Control": "no-store",
+58:    cache: "no-store",
+152:    const data = await getRuntimeStorefront()
+---- src/app/page.tsx
+2:import { getRuntimeStorefront } from "@/lib/runtime-store"
+4:export const dynamic = "force-dynamic"
+6:export const fetchCache = "force-no-store"
+56:  const data = await getRuntimeStorefront()
+
+6) Conferindo build local:
+
+> exale-cosmeticos-naturais@0.1.0 prebuild
+> node scripts/auto-repair.mjs
+
+Auto-repair aplicado: INP, imagens, cache, painel limpo e build guard.
+
+> exale-cosmeticos-naturais@0.1.0 build
+> next build
+
+▲ Next.js 16.2.7 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 6.5s
+  Skipping validation of types
+  Finished TypeScript config validation in 43ms ...
+  Collecting page data using 1 worker ...
+⚠ Using edge runtime on a page currently disables static generation for that page
+  Generating static pages using 1 worker (0/12) ...
+  Generating static pages using 1 worker (3/12) 
+  Generating static pages using 1 worker (6/12) 
+  Generating static pages using 1 worker (9/12) 
+✓ Generating static pages using 1 worker (12/12) in 527ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ○ /admin
+├ ƒ /api/admin/data
+├ ƒ /api/admin/products
+├ ƒ /api/admin/upload
+├ ƒ /api/checkout
+├ ƒ /api/coupons
+├ ƒ /api/health
+├ ƒ /api/products
+├ ƒ /api/settings
+├ ƒ /api/storefront
+├ ○ /carrinho
+├ ○ /obrigado
+├ ƒ /opengraph-image
+├ ○ /painel-exale
+└ ƒ /produto/[slug]
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+RESULTADO FINAL:
+Diagnóstico concluído. Leia as linhas com FALHA acima para saber o ponto exato.
+

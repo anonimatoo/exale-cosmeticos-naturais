@@ -1,0 +1,10 @@
+{
+  "slug": "banho-premium",
+  "title": "Banho Premium Exale",
+  "subtitle": "Monte seu ritual com sabonetes, hidratantes e fragrâncias.",
+  "image": "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/banner-banho-premium.svg",
+  "buttonText": "Conhecer linhas",
+  "buttonLink": "#linhas",
+  "active": true,
+  "order": 2
+}

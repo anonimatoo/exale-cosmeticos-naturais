@@ -1,0 +1,58 @@
+
+> exale-cosmeticos-naturais@0.1.0 prebuild
+> node scripts/prebuild-guard.cjs
+
+[PREBUILD-GUARD] OK: 7 produto(s) preservado(s).
+
+> exale-cosmeticos-naturais@0.1.0 build
+> next build
+
+▲ Next.js 16.2.7 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 6.1s
+  Skipping validation of types
+  Finished TypeScript config validation in 65ms ...
+  Collecting page data using 1 worker ...
+⚠ Using edge runtime on a page currently disables static generation for that page
+  Generating static pages using 1 worker (0/8) ...
+  Generating static pages using 1 worker (2/8) 
+  Generating static pages using 1 worker (4/8) 
+  Generating static pages using 1 worker (6/8) 
+✓ Generating static pages using 1 worker (8/8) in 470ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /admin
+├ ƒ /admin/editor
+├ ƒ /api/admin/landing-page
+├ ƒ /api/admin/login
+├ ƒ /api/admin/save
+├ ƒ /api/admin/sync-site
+├ ƒ /api/admin/upload
+├ ƒ /api/checkout
+├ ƒ /api/coupons
+├ ƒ /api/health
+├ ƒ /api/products
+├ ƒ /api/settings
+├ ƒ /api/store
+├ ƒ /api/storefront
+├ ○ /carrinho
+├ ƒ /editor
+├ ƒ /landing
+├ ƒ /landing-editor
+├ ƒ /loja
+├ ○ /obrigado
+├ ƒ /opengraph-image
+├ ƒ /painel
+├ ƒ /painel-exale
+└ ƒ /produtos
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

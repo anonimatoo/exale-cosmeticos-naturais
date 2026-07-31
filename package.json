@@ -1,0 +1,29 @@
+{
+  "name": "exale-cosmeticos-naturais",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.local.cjs",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "repair": "node scripts/auto-repair.mjs",
+    "prebuild": "node scripts/prebuild-guard.cjs",
+    "prebuild:antigo": "node scripts/auto-repair.mjs"
+  },
+  "dependencies": {
+    "lucide-react": "^1.17.0",
+    "next": "16.2.7",
+    "react": "19.2.4",
+    "react-dom": "19.2.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.7",
+    "playwright": "^1.62.1",
+    "typescript": "^5"
+  }
+}

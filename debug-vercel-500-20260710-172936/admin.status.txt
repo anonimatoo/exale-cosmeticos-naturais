@@ -1,0 +1,2 @@
+HTTP_admin=000
+FINAL_URL=https://exale-cosmeticos-naturais.vercel.app/admin?v=debug-20260710-172936

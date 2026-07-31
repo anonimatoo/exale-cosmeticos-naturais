@@ -1,0 +1,22 @@
+HTTP/2 200 
+accept-ranges: bytes
+access-control-allow-origin: *
+age: 116
+cache-control: no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0
+content-disposition: inline
+content-type: text/html; charset=utf-8
+date: Fri, 10 Jul 2026 17:29:37 GMT
+etag: "1939c0093f49b7ad723633f14a9b61c5"
+expires: 0
+pragma: no-cache
+server: Vercel
+strict-transport-security: max-age=63072000; includeSubDomains; preload
+surrogate-control: no-store
+vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+x-matched-path: /
+x-nextjs-prerender: 1
+x-nextjs-stale-time: 300
+x-vercel-cache: HIT
+x-vercel-id: gru1::762st-1783704577074-9bb94655682b
+content-length: 10323
+

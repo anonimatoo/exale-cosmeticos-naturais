@@ -1,0 +1,10 @@
+{
+  "slug": "promocao-exale",
+  "title": "Promoções Especiais",
+  "subtitle": "Produtos selecionados com condição especial por tempo limitado.",
+  "image": "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/banner-promocao-exale.svg",
+  "buttonText": "Ver ofertas",
+  "buttonLink": "#produtos",
+  "active": true,
+  "order": 4
+}

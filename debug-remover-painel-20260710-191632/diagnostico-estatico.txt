@@ -1,0 +1,48 @@
+DATA: 20260710-191632
+
+Arquivos do painel:
+src/app/painel-exale/page.tsx
+src/app/painel-exale/layout.tsx
+src/app/painel-exale/layout.tsx.backup-2026-07-10T13-32-07-847Z
+src/app/painel-exale/page.tsx.backup-2026-07-10T13-32-07-863Z
+src/app/painel-exale/template.tsx
+
+Componentes admin:
+src/components/admin-save-alert.tsx
+src/components/admin-save-alert.tsx.backup-2026-07-10T13-32-07-846Z
+src/components/admin-product-fields.css
+src/components/admin-professional-enhancer.tsx
+src/components/admin-format-sync-bridge.tsx
+src/components/admin-product-remove-fix.tsx
+
+Busca por confirm/remover:
+src/app/carrinho/page.tsx:395:            <button className="btn btn-light" onClick={() => remove(item.product.slug)}>Remover</button>
+src/app/api/admin/remove-product/route.ts:170:    return Response.json({ ok: false, message: String(error?.message || error || "Erro ao remover.") }, { status: 500, headers: headers() });
+src/app/painel-exale/page.tsx:374:                <button className="btn btn-light" onClick={() => save("delete_banner", { slug: item.slug })}>Remover</button>
+src/app/painel-exale/page.tsx:400:                <button className="btn btn-light" onClick={() => save("delete_line", { slug: item.slug })}>Remover</button>
+src/app/painel-exale/page.tsx:442:                <button className="btn btn-light" onClick={() => save("delete_product", { slug: item.slug })}>Remover</button>
+src/app/painel-exale/layout.tsx:1:import AdminProductRemoveFix from "@/components/admin-product-remove-fix";
+src/app/painel-exale/layout.tsx:16:      <AdminProductRemoveFix />
+src/app/painel-exale/page.tsx.backup-2026-07-10T13-32-07-863Z:373:                <button className="btn btn-light" onClick={() => save("delete_banner", { slug: item.slug })}>Remover</button>
+src/app/painel-exale/page.tsx.backup-2026-07-10T13-32-07-863Z:399:                <button className="btn btn-light" onClick={() => save("delete_line", { slug: item.slug })}>Remover</button>
+src/app/painel-exale/page.tsx.backup-2026-07-10T13-32-07-863Z:441:                <button className="btn btn-light" onClick={() => save("delete_product", { slug: item.slug })}>Remover</button>
+src/app/painel-exale/template.tsx:1:import AdminProductRemoveFix from "@/components/admin-product-remove-fix";
+src/app/painel-exale/template.tsx:11:      <AdminProductRemoveFix />
+src/components/admin-product-remove-fix.tsx:33:  return text.includes("remover") || text.includes("excluir") || text.includes("apagar") || text.includes("deletar");
+src/components/admin-product-remove-fix.tsx:56:      if (plain.includes("editar") && plain.includes("remover") && text.length < 2200) {
+src/components/admin-product-remove-fix.tsx:93:    .filter((x) => !/^(editar|remover|excluir|apagar|deletar)$/i.test(clean(x)));
+src/components/admin-product-remove-fix.tsx:101:export default function AdminProductRemoveFix() {
+src/components/admin-product-remove-fix.tsx:126:    window.__EXALE_REMOVE_ORIGINAL_CONFIRM__ = window.confirm.bind(window);
+src/components/admin-product-remove-fix.tsx:146:    window.confirm = function patchedConfirm(message?: string) {
+src/components/admin-product-remove-fix.tsx:151:        (text.includes("remocao") || text.includes("remover") || text.includes("excluir") || text.includes("apagar"))
+src/components/admin-product-remove-fix.tsx:154:        else showToast("info", "Use a janela personalizada para remover produto.");
+src/components/admin-product-remove-fix.tsx:158:      return originalConfirm(message);
+src/components/admin-product-remove-fix.tsx:169:      window.confirm = originalConfirm;
+src/components/admin-product-remove-fix.tsx:186:      const response = await fetch("/api/admin/remove-product", {
+src/components/admin-product-remove-fix.tsx:202:        throw new Error(data?.message || "Nao foi possivel remover.");
+src/components/admin-product-remove-fix.tsx:210:        await fetch("/api/admin/sync-site?reason=remove-product&t=" + Date.now(), {
+src/components/admin-product-remove-fix.tsx:224:      showToast("error", String(error?.message || error || "Erro ao remover produto."));
+src/components/admin-product-remove-fix.tsx:258:            <div style={{ fontSize: 24, fontWeight: 950, marginBottom: 10 }}>Remover produto?</div>
+src/components/admin-product-remove-fix.tsx:315:                {busy ? "Removendo..." : "Remover com segurança"}
+scripts/teste-completo-seguro.cjs:349:    ok("simulacao_remover_produto", "Remocao simulada em memoria funcionando.");
+scripts/teste-completo-seguro.cjs:351:    fail("simulacao_remover_produto", "Falha na simulacao de remocao em memoria.");

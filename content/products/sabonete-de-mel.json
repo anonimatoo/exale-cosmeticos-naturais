@@ -1,0 +1,49 @@
+{
+  "slug": "sabonete-de-mel",
+  "sku": "273737",
+  "name": "Sabonete de Mel",
+  "category": "Cosméticos Naturais",
+  "line": "Cosméticos Naturais",
+  "price": 49.99,
+  "oldPrice": 59.9,
+  "costPrice": 29.29,
+  "shortText": "",
+  "description": "",
+  "stock": 1,
+  "featured": true,
+  "images": [
+    "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/sabonete-de-mel-1784129736439.jpg"
+  ],
+  "active": true,
+  "id": "sabonete-de-mel",
+  "nome": "Sabonete de Mel",
+  "title": "Sabonete de Mel",
+  "descricao": "",
+  "preco": 49.99,
+  "promotionalPrice": null,
+  "seo": {
+    "title": "Sabonete de Mel",
+    "description": "",
+    "keywords": []
+  },
+  "updatedAt": "2026-07-15T18:16:34.563Z",
+  "__githubPath": "content/products/sabonete-de-mel.json",
+  "__githubSha": "21a45f421f37afb49b4227acd462f9aed7517620",
+  "titulo": "Sabonete de Mel",
+  "valor": 49.99,
+  "shortDescription": "",
+  "resumo": "",
+  "categoria": "Cosméticos Naturais",
+  "linha": "Cosméticos Naturais",
+  "image": "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/sabonete-de-mel-1784129736439.jpg",
+  "imagem": "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/sabonete-de-mel-1784129736439.jpg",
+  "foto": "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/sabonete-de-mel-1784129736439.jpg",
+  "imagens": [
+    "https://raw.githubusercontent.com/anonimatoo/exale-cosmeticos-naturais/main/public/uploads/sabonete-de-mel-1784129736439.jpg"
+  ],
+  "ativo": true,
+  "precoPromocional": null,
+  "estoque": 1,
+  "destaque": true,
+  "originalSlug": "sabonete-de-mel"
+}

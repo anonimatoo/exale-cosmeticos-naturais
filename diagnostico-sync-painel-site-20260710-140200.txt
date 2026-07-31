@@ -1,0 +1,320 @@
+============================================================
+DIAGNOSTICO PROFISSIONAL - PAINEL ADM NAO SINCRONIZA COM SITE
+Data: 20260710-140200
+Projeto: /root/exale-cosmeticos-naturais
+Site: https://exale-cosmeticos-naturais.vercel.app
+============================================================
+
+============================================================
+1. GIT / BRANCH / COMMITS
+============================================================
+ M src/app/loja/page.tsx
+ M src/app/painel-exale/page.tsx
+ M src/app/produtos/page.tsx
+ D src/middleware.ts
+?? diagnostico-sync-painel-site-20260710-140200.txt
+?? scripts/fix-admin-sync.cjs
+?? src/middleware.ts.disabled-1783690327861
+
+main
+
+957bede corrige sintaxe do painel e sincronizacao com a vitrine
+8a8c83a backup antes da correcao definitiva do painel
+0319959 salva configurações da loja pelo painel administrativo
+314fe4b corrige painel admin salvamento real loading produtos imagens configuracoes e cache
+25d13df backup local antes da correcao profissional do painel
+e17ff4d salva configurações da loja pelo painel administrativo
+79e3096 corrige painel admin salvamento real loading produtos imagens e configuracoes
+27fa755 backup antes da limpeza profissional do painel
+
+============================================================
+2. VERIFICANDO ARQUIVOS CRITICOS
+============================================================
+OK: src/lib/github-live-store.ts
+OK: src/lib/runtime-store.ts
+OK: src/app/api/admin/data/route.ts
+OK: src/app/api/admin/products/route.ts
+OK: src/app/api/admin/upload/route.ts
+OK: src/app/api/storefront/route.ts
+OK: src/app/api/settings/route.ts
+OK: src/app/api/products/route.ts
+OK: src/app/page.tsx
+OK: src/app/painel-exale/page.tsx
+OK: src/components/admin-save-alert.tsx
+FALTANDO: src/middleware.ts
+
+============================================================
+3. PROCURANDO PONTOS QUE PODEM QUEBRAR A SINCRONIZACAO
+============================================================
+
+--- github-live-store.ts ---
+13:    process.env.GITHUB_TOKEN ||
+14:    process.env.GITHUB_PAT ||
+40:      "GITHUB_TOKEN não está configurado no ambiente Production da Vercel."
+69:    "https://raw.githubusercontent.com",
+93:export async function readJsonFileLive<T>(
+98:    `https://api.github.com/repos/${OWNER}/${REPO}` +
+105:      cache: "no-store",
+133:export async function readJsonFolderLive(
+139:    `https://api.github.com/repos/${OWNER}/${REPO}` +
+146:      cache: "no-store",
+165:              { cache: "no-store" }
+215:    `https://api.github.com/repos/${OWNER}/${REPO}` +
+221:    cache: "no-store",
+244:export async function commitFileToGithub(
+253:    `https://api.github.com/repos/${OWNER}/${REPO}` +
+277:    cache: "no-store",
+299:  await commitFileToGithub(filePath, content, message);
+331:export async function getGithubLiveStore() {
+340:    readJsonFileLive(SETTINGS_FILE, {}),
+341:    readJsonFolderLive("content/products"),
+342:    readJsonFolderLive("content/banners"),
+343:    readJsonFolderLive("content/product-lines"),
+344:    readJsonFolderLive("content/coupons"),
+345:    readJsonFolderLive("content/combos"),
+
+--- API admin data ---
+5:  writeJsonLive,
+13:export const runtime = "nodejs";
+14:export const dynamic = "force-dynamic";
+16:export const fetchCache = "force-no-store";
+188:    await writeJsonLive(
+189:      `content/products/${product.slug}.json`,
+236:export async function POST(request: Request) {
+260:        "content/settings/store.json",
+280:      await writeJsonLive(
+281:        "content/settings/store.json",
+348:export const PUT = POST;
+349:export const PATCH = POST;
+
+--- API storefront/settings/products ---
+src/app/api/storefront/route.ts:1:import { getGithubLiveStore } from "@/lib/github-live-store";
+src/app/api/storefront/route.ts:4:export const dynamic = "force-dynamic";
+src/app/api/storefront/route.ts:5:export const revalidate = 0;
+src/app/api/storefront/route.ts:6:export const fetchCache = "force-no-store";
+src/app/api/storefront/route.ts:10:    "no-store, no-cache, must-revalidate, proxy-revalidate, max-age=0",
+src/app/api/storefront/route.ts:13:  "Surrogate-Control": "no-store",
+src/app/api/storefront/route.ts:18:    return Response.json(await getGithubLiveStore(), {
+src/app/api/settings/route.ts:1:import { readJsonFileLive } from "@/lib/github-live-store";
+src/app/api/settings/route.ts:4:export const dynamic = "force-dynamic";
+src/app/api/settings/route.ts:5:export const revalidate = 0;
+src/app/api/settings/route.ts:6:export const fetchCache = "force-no-store";
+src/app/api/settings/route.ts:9:  const settings = await readJsonFileLive(
+src/app/api/settings/route.ts:24:          "no-store, no-cache, must-revalidate, max-age=0",
+src/app/api/products/route.ts:1:import { readJsonFolderLive } from "@/lib/github-live-store";
+src/app/api/products/route.ts:4:export const dynamic = "force-dynamic";
+src/app/api/products/route.ts:5:export const revalidate = 0;
+src/app/api/products/route.ts:6:export const fetchCache = "force-no-store";
+src/app/api/products/route.ts:9:  const products = await readJsonFolderLive(
+src/app/api/products/route.ts:23:          "no-store, no-cache, must-revalidate, max-age=0",
+
+--- HOME page.tsx: fonte dos dados ---
+1:export const dynamic = "force-dynamic";
+2:export const revalidate = 0;
+3:export const fetchCache = "force-no-store";
+5:import { getRuntimeStorefront } from "@/lib/runtime-store"
+56:  const data = await getRuntimeStorefront()
+
+--- Painel: chamadas de salvamento ---
+97:  buttonText: "Ver produtos",
+98:  buttonLink: "#produtos",
+108:  const [loading, setLoading] = useState(false)
+110:  const [settings, setSettings] = useState<any>({})
+111:  const [products, setProducts] = useState<Product[]>([])
+121:    const response = await fetch("/api/admin/data", {
+128:    setSettings(data.settings || {})
+129:    setProducts(data.products || [])
+148:  async function save(action: string, payload: any) {
+152:      const response = await fetch("/api/admin/data", {
+183:      if (target === "logo") setSettings({ ...settings, logoImage: previewUrl })
+194:        const response = await fetch("/api/admin/upload", {
+206:        if (target === "logo") setSettings({ ...settings, logoImage: finalPath })
+217:          setMessage("Imagem enviada com sucesso. Agora clique em Salvar.")
+219:          setMessage("Imagem enviada com sucesso. Agora clique em Salvar.")
+250:    save("save_product", { product: finalProduct })
+274:        <p>Edite sua loja de forma simples: banners, produtos, imagens, preços, textos e categorias.</p>
+278:          <button className="btn btn-light" onClick={() => setTab("settings")}>Loja e Logo</button>
+282:          <button className="btn btn-light" onClick={() => setTab("products")}>Produtos</button>
+290:            <div className="admin-box"><strong>{products.length}</strong><span>Produtos</span></div>
+296:        {tab === "settings" ? (
+299:            {settings.logoImage ? <img src={settings.logoImage} alt="Logo" style={{ width: 120, height: 120, objectFit: "contain", borderRadius: 24, background: "#120b07", border: "1px solid #d4af37" }} /> : null}
+301:            <input style={inputStyle} placeholder="Nome da loja" value={settings.storeName || ""} onChange={(e) => setSettings({ ...settings, storeName: e.target.value })} />
+302:            <input style={inputStyle} placeholder="Nome em destaque" value={settings.neonName || ""} onChange={(e) => setSettings({ ...settings, neonName: e.target.value })} />
+303:            <input style={inputStyle} placeholder="Slogan" value={settings.slogan || ""} onChange={(e) => setSettings({ ...settings, slogan: e.target.value })} />
+304:            <input style={inputStyle} placeholder="Frase da barra superior" value={settings.promoText || ""} onChange={(e) => setSettings({ ...settings, promoText: e.target.value })} />
+305:            <input style={inputStyle} placeholder="WhatsApp" value={settings.whatsapp || ""} onChange={(e) => setSettings({ ...settings, whatsapp: e.target.value })} />
+310:              value={(settings as any).siteTitle || ""}
+311:              onChange={(e) => setSettings({ ...settings, siteTitle: e.target.value } as any)}
+318:              value={(settings as any).siteSubtitle || ""}
+319:              onChange={(e) => setSettings({ ...settings, siteSubtitle: e.target.value } as any)}
+327:              value={(settings as any).headerTitle || ""}
+328:              onChange={(e) => setSettings({ ...settings, headerTitle: e.target.value } as any)}
+335:              value={(settings as any).headerSubtitle || ""}
+336:              onChange={(e) => setSettings({ ...settings, headerSubtitle: e.target.value } as any)}
+338:<button className="btn btn-pink" onClick={() => save("save_settings", { settings })}>Salvar loja</button>
+363:              save("save_banner", { banner })
+364:            }}>Salvar banner</button>
+374:                <button className="btn btn-light" onClick={() => save("delete_banner", { slug: item.slug })}>Remover</button>
+382:            <h2>Linhas de produtos</h2>
+390:            <button className="btn btn-pink" onClick={() => save("save_line", { line })}>Salvar linha</button>
+400:                <button className="btn btn-light" onClick={() => save("delete_line", { slug: item.slug })}>Remover</button>
+427:            <button className="btn btn-pink" onClick={saveProduct}>Salvar produto</button>
+431:        {tab === "products" ? (
+434:            {products.map((item) => (
+442:                <button className="btn btn-light" onClick={() => save("delete_product", { slug: item.slug })}>Remover</button>
+
+--- Alerta/loop de salvamento ---
+14:    const originalFetch = window.fetch.bind(window);
+30:    window.fetch = async (
+46:        url.includes("/api/admin/") &&
+58:          "Salvando e sincronizando as alterações com o site...",
+80:          throw new Error(
+82:            `Erro HTTP ${response.status} ao salvar.`
+128:      window.fetch = originalFetch;
+141:  const isError = alert.type === "error";
+163:          border: isError
+166:          background: isError
+169:          color: isError ? "#991b1b" : "#422006",
+198:            {isError ? "✕" : "✓"}
+
+============================================================
+4. VARIAVEIS LOCAIS SEM MOSTRAR VALORES
+============================================================
+.env.local:
+  AUSENTE GITHUB_TOKEN
+  AUSENTE GITHUB_PAT
+  AUSENTE GITHUB_ACCESS_TOKEN
+  AUSENTE GH_TOKEN
+  AUSENTE GITHUB_OWNER
+  AUSENTE GITHUB_REPO
+  AUSENTE GITHUB_BRANCH
+.env.production: nao existe
+.env.production.local: nao existe
+
+============================================================
+5. VARIAVEIS NA VERCEL SEM MOSTRAR VALORES
+============================================================
+
+ name                       value               environments        created    
+ GITHUB_BRANCH              Encrypted           Production          45m ago    
+ GITHUB_REPO                Encrypted           Production          45m ago    
+ GITHUB_OWNER               Encrypted           Production          45m ago    
+ GITHUB_TOKEN               Encrypted           Production          46m ago    
+ VERCEL_DEPLOY_HOOK_URL     Encrypted           Production          32d ago    
+ GITHUB_REPO_TOKEN          Encrypted           Production          32d ago    
+ NEXT_PUBLIC_SITE_URL       Encrypted           Production          32d ago    
+ GITHUB_REPO_NAME           Encrypted           Production          32d ago    
+ GITHUB_REPO_OWNER          Encrypted           Production          32d ago    
+ ADMIN_PASSWORD             Encrypted           Production          32d ago    
+
+
+============================================================
+6. TESTANDO APIs PUBLICAS DA PRODUCAO
+============================================================
+GET /api/settings: 200 OK
+  storeName: Patrícia Santana 
+  headerTitle: Patrícia Santana 
+  updatedAt: 2026-07-10T13:59:35.361Z
+GET /api/storefront: 200 OK
+  source: github-live
+  settings.storeName: Patrícia Santana 
+  settings.headerTitle: Patrícia Santana 
+  products: 2
+  updatedAt: 2026-07-10T14:02:07.049Z
+GET /api/products: 200 OK
+  products: 2
+Comparacao settings x storefront: OK - mesmos dados
+
+============================================================
+7. TESTE REAL DE SALVAMENTO PELO MESMO CAMINHO DO PAINEL
+============================================================
+POST /api/admin/data: 200 OK
+  ok: true
+  message: Configurações salvas com sucesso. O site recebeu a atualização.
+  diagnostic retornou na resposta: SIM
+GET /api/settings depois do save: 200 OK
+  diagnosticSyncTest: diagnostico-sync-1783692127725
+GET /api/storefront depois do save: 200 OK
+  settings.diagnosticSyncTest: diagnostico-sync-1783692127725
+RESULTADO: API admin, /api/settings e /api/storefront sincronizaram. Se o site visual nao muda, o erro esta no src/app/page.tsx nao usando esses campos na renderizacao.
+
+============================================================
+8. BUILD LOCAL PARA CONFIRMAR SE O CODIGO COMPILA
+============================================================
+
+> exale-cosmeticos-naturais@0.1.0 prebuild
+> node scripts/auto-repair.mjs
+
+Auto-repair aplicado: INP, imagens, cache, painel limpo e build guard.
+
+> exale-cosmeticos-naturais@0.1.0 build
+> next build
+
+▲ Next.js 16.2.7 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+Turbopack build encountered 1 warnings:
+./next.config.ts
+Encountered unexpected file in NFT list
+A file was traced that indicates that the whole project was traced unintentionally. Somewhere in the import trace below, there are:
+- filesystem operations (like path.join, path.resolve or fs.readFile), or
+- very dynamic requires (like require('./' + foo)).
+To resolve this, you can
+- remove them if possible, or
+- only use them in development, or
+- make sure they are statically scoped to some subfolder: path.join(process.cwd(), 'data', bar), or
+- add ignore comments: path.join(/*turbopackIgnore: true*/ process.cwd(), bar)
+
+Import trace:
+  App Route:
+    ./next.config.ts
+    ./src/lib/github-live-store.ts
+    ./src/app/api/storefront/route.ts
+
+
+✓ Compiled successfully in 7.0s
+  Skipping validation of types
+  Finished TypeScript config validation in 46ms ...
+  Collecting page data using 1 worker ...
+⚠ Using edge runtime on a page currently disables static generation for that page
+  Generating static pages using 1 worker (0/8) ...
+  Generating static pages using 1 worker (2/8) 
+  Generating static pages using 1 worker (4/8) 
+  Generating static pages using 1 worker (6/8) 
+✓ Generating static pages using 1 worker (8/8) in 490ms
+  Finalizing page optimization ...
+
+Route (app)
+┌ ƒ /
+├ ○ /_not-found
+├ ƒ /admin
+├ ƒ /api/admin/data
+├ ƒ /api/admin/products
+├ ƒ /api/admin/upload
+├ ƒ /api/checkout
+├ ƒ /api/coupons
+├ ƒ /api/health
+├ ƒ /api/products
+├ ƒ /api/settings
+├ ƒ /api/storefront
+├ ○ /carrinho
+├ ƒ /loja
+├ ○ /obrigado
+├ ƒ /opengraph-image
+├ ƒ /painel
+├ ƒ /painel-exale
+├ ƒ /produto/[slug]
+└ ƒ /produtos
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+
+
+============================================================
+RELATORIO GERADO
+============================================================
+diagnostico-sync-painel-site-20260710-140200.txt

@@ -1,0 +1,8 @@
+{
+  "code": "EXALE10",
+  "active": true,
+  "description": "Cupom de primeira compra.",
+  "discountType": "percent",
+  "discountValue": 10,
+  "minTotal": 0
+}

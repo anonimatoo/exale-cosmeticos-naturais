@@ -1,0 +1,28 @@
+{
+  "slug": "paty",
+  "sku": "PATY",
+  "name": "Paty",
+  "category": "Cosméticos Naturais",
+  "line": "hidratantes-corporais-naturais",
+  "price": 4900,
+  "oldPrice": "6900",
+  "costPrice": 0,
+  "shortText": "",
+  "description": "",
+  "stock": 1,
+  "featured": true,
+  "images": [],
+  "id": "paty",
+  "nome": "Paty",
+  "title": "Paty",
+  "descricao": "",
+  "preco": 4900,
+  "promotionalPrice": null,
+  "active": true,
+  "seo": {
+    "title": "Paty",
+    "description": "",
+    "keywords": []
+  },
+  "updatedAt": "2026-07-10T17:44:50.970Z"
+}
